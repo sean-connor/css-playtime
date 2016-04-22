@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="stylesheet/main.css" />
+    <title>CSS Playground</title>
+    <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">Header</header>
+      <article class="playground">
+        <p>Playground</p>
+        <div id="hook">
+          <div id="element1" style="display:block;position:absolute;background:purple;top:calc(50% - 15%);right:calc(50% - 15%);width:30%;height:30%;" onclick="selectElement(event)"> </div>
+        </div>
+      </article>
+      <aside class="options">
+        <ul class="styles">
+          <li>Background Color</li>
+          <ul>
+            <li>Container</li>
+            <select name="background" onchange="adjustProperty(event, this.name, this.options[this.selectedIndex].value)">
+              <option value="blue">Blue</option>
+              <option value="red">Red</option>
+              <option value="green">Green</option>
+            </select>
+            <li>Element</li>
+            <select name="background" onchange="adjustProperty(event, this.name, this.options[this.selectedIndex].value)">
+              <option value="blue">Blue</option>
+              <option value="red">Red</option>
+              <option value="green">Green</option>
+            </select>
+          </ul>
+          <li>Sizes</li>
+          <ul>
+            <li>Width</li>
+            <input type="range" name="width" min="0" max="700" value="50" step="1" oninput="adjustProperty(event, this.name, this.value)">
+            <li>Height</li>
+            <input type="range" name="height" min="0" max="700" value="50" step="1" oninput="adjustProperty(event, this.name, this.value)">
+          </ul>
+          <li>Positions</li>
+          <ul>
+            <li>Position</li>
+            <select name="position" onchange="adjustProperty(event, this.name, this.options[this.selectedIndex].value)">
+              <option value="absolute">Absolute</option>
+              <option value="fixed">Fixed</option>
+              <option value="relative">Relative</option>
+            </select>
+            <li>Top</li>
+            <input type="range" name="top" min="0" max="700" value="50" step="1" oninput="adjustProperty(event, this.name, this.value)">
+            <li>Bottom</li>
+            <input type="range" name="bottom" min="0" max="700" value="50" step="1" oninput="adjustProperty(event, this.name, this.value)">
+            <li>Right</li>
+            <input type="range" name="right" min="0" max="700" value="50" step="1" oninput="adjustProperty(event, this.name, this.value)">
+            <li>Left</li>
+            <input type="range" name="left" min="0" max="700" value="50" step="1" oninput="adjustProperty(event, this.name, this.value)">
+          </ul>
+          <li>Add Elements</li>
+          <ul>
+            <li><input type="button" name="child" value="Add Child" onclick="addElement(event)"/></li>
+            <li><input type="button" name="sibling" value="Add Sibling" onclick="addElement(event)"/></li>
+          </ul>
+          <li>Transitions</li>
+            <ul>
+              <li>Property
+                <select name="background" onchange="adjustProperty(event, this.name, this.options[this.selectedIndex].value)">
+                  <option value="color">Color</option>
+                </select>
+              </li>
+            </ul>
+            <li>on...
+              <select id="transition" onchange="adjustProperty(event, this.name, this.options[this.selectedIndex].value)">
+                <option value="click">Click</option>
+                <option value="hover">Hover</option>
+              </select>
+            </li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </aside>
+      <footer class="footer">Footer</footer>
+    </div>
+    <script type="text/javascript" src="js/main.js"></script>
+  </body>
+</html>

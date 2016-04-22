@@ -1,0 +1,83 @@
+@mixin flexBox {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+@mixin flexRow {
+  @include flexBox;
+  -webkit-flex-flow: row;
+  flex-flow: row;
+}
+@mixin flexWrapRow {
+  @include flexBox;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+@mixin flexColumn {
+  @include flexBox;
+  -webkit-flex-flow: column;
+  flex-flow: column;
+}
+html{
+  margin: 0;
+  padding: 0;
+}
+.wrapper {
+  @include flexWrapRow;
+  height: 100vh;
+}
+
+.wrapper > * {
+  padding: 0;
+  flex: 1 100%;
+}
+
+.header {
+  background: tomato;
+}
+
+.footer {
+  background: lightgreen;
+}
+
+.playground {
+  position: relative;
+  text-align: left;
+  background: deepskyblue;
+}
+
+.options {
+  background: gold;
+}
+
+#hook {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+@media all and (min-width: 600px) {
+  .options { flex: 1 auto; }
+}
+
+@media all and (min-width: 800px) {
+  .playground { flex: 3 0px; }
+
+  .header{height: 10vh;}
+  .options {
+    order: 1;
+    height: 80vh;
+    }
+  .playground {
+    order: 2;
+    height: 80vh;}
+  .footer {
+    order: 3;
+    height: 10vh;
+  }
+}
