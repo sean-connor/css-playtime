@@ -23,6 +23,11 @@
 html{
   margin: 0;
   padding: 0;
+  font-family: 'Oswald', sans-serif;
+}
+body{
+  margin: 0;
+  padding: 0;
 }
 ul{
   list-style: none;
@@ -43,16 +48,14 @@ li{
 .header {
   background: #333;
   color: ghostwhite;
-  font-size: 50px;
-  border-radius: 2px;
-
+  font-size: 4em;
+  line-height: 2em;
+  font-family: 'Architects Daughter', cursive;
 }
 
 .footer {
   background: #333;
   color: ghostwhite;
-  border-radius: 2px;
-
 }
 
 .playground {
@@ -65,7 +68,8 @@ li{
   background: #222;
   color: ghostwhite;
   border: 5px solid #555;
-  border-radius: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
 }
 
 #hook {
