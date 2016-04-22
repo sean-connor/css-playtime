@@ -24,6 +24,12 @@ html{
   margin: 0;
   padding: 0;
 }
+ul{
+  list-style: none;
+}
+li{
+  list-style: none;
+}
 .wrapper {
   @include flexWrapRow;
   height: 100vh;
