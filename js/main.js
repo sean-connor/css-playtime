@@ -18,6 +18,16 @@ function adjustProperty(event, property, value) {
   div.style[property] = value;
 }
 
+function adjustRGBA(){
+  var div = document.getElementById(selectedElementId);
+  var red = document.getElementById('red').value;
+  var green = document.getElementById('green').value;
+  var blue = document.getElementById('blue').value;
+  var opacity = document.getElementById('opacity').value / 100;
+  var rgba = "rgba("+red+","+blue+","+green+","+opacity+")";
+  div.style['background'] = rgba;
+}
+
 function addElement(type){
   ELEMENTS['elementIndex']++;
   var elementName = "element" + ELEMENTS['elementIndex'];

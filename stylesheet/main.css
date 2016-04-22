@@ -17,19 +17,26 @@ html {
   flex: 1 100%; }
 
 .header {
-  background: tomato;
-  font-size: 50px; }
+  background: #333;
+  color: ghostwhite;
+  font-size: 50px;
+  border-radius: 2px; }
 
 .footer {
-  background: lightgreen; }
+  background: #333;
+  color: ghostwhite;
+  border-radius: 2px; }
 
 .playground {
   position: relative;
   text-align: left;
-  background: deepskyblue; }
+  background: white; }
 
 .options {
-  background: gold; }
+  background: #222;
+  color: ghostwhite;
+  border: 5px solid #555;
+  border-radius: 2px; }
 
 #hook {
   height: 100%;

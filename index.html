@@ -18,20 +18,17 @@
       <aside class="options">
         <ul class="styles">
           <li>Background Color</li>
-          <ul>
-            <li>Container</li>
-            <select name="background" onchange="adjustProperty(event, this.name, this.options[this.selectedIndex].value)">
-              <option value="blue">Blue</option>
-              <option value="red">Red</option>
-              <option value="green">Green</option>
-            </select>
-            <li>Element</li>
-            <select name="background" onchange="adjustProperty(event, this.name, this.options[this.selectedIndex].value)">
-              <option value="blue">Blue</option>
-              <option value="red">Red</option>
-              <option value="green">Green</option>
-            </select>
-          </ul>
+            <ul>
+              <li>Red</li>
+              <input id="red" type="range" name="r" min="0" max="255" value="50" step="1" oninput="adjustRGBA()">
+              <li>Green</li>
+              <input id="green" type="range" name="g" min="0" max="255" value="50" step="1" oninput="adjustRGBA()">
+              <li>Blue</li>
+              <input id="blue" type="range" name="b" min="0" max="255" value="50" step="1" oninput="adjustRGBA()">
+              <li>Opacity</li>
+              <input id="opacity" type="range" name="opacity" min="0" max="100" value="50" step="1" oninput="adjustRGBA()">
+            </ul>
+            </ul>
           <li>Sizes</li>
           <ul>
             <li>Width</li>
