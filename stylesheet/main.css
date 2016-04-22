@@ -17,7 +17,8 @@ html {
   flex: 1 100%; }
 
 .header {
-  background: tomato; }
+  background: tomato;
+  font-size: 50px; }
 
 .footer {
   background: lightgreen; }
