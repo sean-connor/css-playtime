@@ -5,78 +5,106 @@
     <link rel="stylesheet" type="text/css" href="stylesheet/main.css" />
     <title>CSS Playground</title>
     <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
-    <link href='https://fonts.googleapis.com/css?family=Oswald:300,400|Pacifico|Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
   </head>
   <body>
+    <!-- WRAPPER -->
     <div class="wrapper">
       <header class="header">CSS Sandbox (Under Construction &#9786;)</header>
+      <!-- PLAYGROUND -->
       <article class="playground">
         <p>Playground</p>
         <div id="hook">
-          <div id="element1" style="display:block;position:absolute;background:purple;top:calc(50% - 15%);right:calc(50% - 15%);width:30%;height:30%;" onclick="selectElement(event)"> </div>
         </div>
       </article>
+      <!-- END PLAYGROUND -->
+      <!-- ASIDE -->
       <aside class="options">
-        <ul class="styles">
-          <li>Background Color</li>
+        <!-- STYLES SECTION -->
+        <section class="styleselection">
+          <ul class="styles">
+            <!-- ADD ELEMENTS -->
+            <li>Add Elements</li>
             <ul>
-              <li>Red</li>
-              <input id="red" type="range" name="r" min="0" max="255" value="50" step="1" oninput="adjustRGBA()">
-              <li>Green</li>
-              <input id="green" type="range" name="g" min="0" max="255" value="50" step="1" oninput="adjustRGBA()">
-              <li>Blue</li>
-              <input id="blue" type="range" name="b" min="0" max="255" value="50" step="1" oninput="adjustRGBA()">
-              <li>Opacity</li>
-              <input id="opacity" type="range" name="opacity" min="0" max="100" value="50" step="1" oninput="adjustRGBA()">
+              <li><input type="button" name="child" value="Add Child" onclick="addElement('child')"/></li>
+              <li><input type="button" name="sibling" value="Add Sibling" onclick="addElement('sibling')"/></li>
             </ul>
-          <li>Sizes</li>
-          <ul>
-            <li>Width</li>
-            <input type="range" name="width" min="0" max="700" value="50" step="1" oninput="adjustProperty(event, this.name, this.value)">
-            <li>Height</li>
-            <input type="range" name="height" min="0" max="700" value="50" step="1" oninput="adjustProperty(event, this.name, this.value)">
-          </ul>
-          <li>Positions</li>
-          <ul>
-            <li>Position</li>
-            <select name="position" onchange="adjustProperty(event, this.name, this.options[this.selectedIndex].value)">
-              <option value="absolute">Absolute</option>
-              <option value="fixed">Fixed</option>
-              <option value="relative">Relative</option>
-            </select>
-            <li>Top</li>
-            <input type="range" name="top" min="0" max="700" value="50" step="1" oninput="adjustProperty(event, this.name, this.value)">
-            <li>Bottom</li>
-            <input type="range" name="bottom" min="0" max="700" value="50" step="1" oninput="adjustProperty(event, this.name, this.value)">
-            <li>Right</li>
-            <input type="range" name="right" min="0" max="700" value="50" step="1" oninput="adjustProperty(event, this.name, this.value)">
-            <li>Left</li>
-            <input type="range" name="left" min="0" max="700" value="50" step="1" oninput="adjustProperty(event, this.name, this.value)">
-          </ul>
-          <li>Add Elements</li>
-          <ul>
-            <li><input type="button" name="child" value="Add Child" onclick="addElement(event)"/></li>
-            <li><input type="button" name="sibling" value="Add Sibling" onclick="addElement(event)"/></li>
-          </ul>
-          <li>Transitions</li>
+            <!-- COLORS -->
+            <li>Background Color</li>
+              <ul>
+                <li>Red</li>
+                <input id="red" type="range" name="r" min="0" max="255" value="50" step="1" oninput="adjustRGBA()">
+                <li>Green</li>
+                <input id="green" type="range" name="g" min="0" max="255" value="50" step="1" oninput="adjustRGBA()">
+                <li>Blue</li>
+                <input id="blue" type="range" name="b" min="0" max="255" value="50" step="1" oninput="adjustRGBA()">
+                <li>Opacity</li>
+                <input id="opacity" type="range" name="opacity" min="0" max="100" value="50" step="1" oninput="adjustRGBA()">
+              </ul>
+            <!-- SIZES -->
+            <li>Sizes</li>
             <ul>
-              <li>Property
-                <select name="background" onchange="adjustProperty(event, this.name, this.options[this.selectedIndex].value)">
-                  <option value="color">Color</option>
+              <li>Width</li>
+              <input type="range" name="width" min="0" max="700" value="50" step="1" oninput="adjustProperty(event, this.name, this.value)">
+              <li>Height</li>
+              <input type="range" name="height" min="0" max="700" value="50" step="1" oninput="adjustProperty(event, this.name, this.value)">
+            </ul>
+            <!-- POSITIONING -->
+            <li>Positioning</li>
+            <ul>
+              <li>Position</li>
+              <select name="position" onchange="adjustProperty(event, this.name, this.options[this.selectedIndex].value)">
+                <option value="absolute">Absolute</option>
+                <option value="fixed">Fixed</option>
+                <option value="relative">Relative</option>
+              </select>
+              <li>Top</li>
+              <input type="range" name="top" min="0" max="700" value="50" step="1" oninput="adjustProperty(event, this.name, this.value)">
+              <li>Bottom</li>
+              <input type="range" name="bottom" min="0" max="700" value="50" step="1" oninput="adjustProperty(event, this.name, this.value)">
+              <li>Right</li>
+              <input type="range" name="right" min="0" max="700" value="50" step="1" oninput="adjustProperty(event, this.name, this.value)">
+              <li>Left</li>
+              <input type="range" name="left" min="0" max="700" value="50" step="1" oninput="adjustProperty(event, this.name, this.value)">
+              <li>Z-Index</li>
+              <input type="number" name="z-index" value="0" oninput="adjustProperty(event, this.name, this.value)"/>
+              <li>Overflow</li>
+              <select name="overflow" onchange="adjustProperty(event, this.name, this.options[this.selectedIndex].value)">
+                <option value="auto">Auto</option>
+                <option value="hidden">Hidden</option>
+                <option value="scroll">Scroll</option>
+                <option value="visible">Visible</option>
+              </select>
+            </ul>
+            <!-- TRANSITIONS -->
+            <li>Transitions</li>
+              <ul>
+                <li>Property
+                  <select name="background" onchange="adjustProperty(event, this.name, this.options[this.selectedIndex].value)">
+                    <option value="color">Color</option>
+                  </select>
+                </li>
+              </ul>
+              <li>on...
+                <select id="transition" onchange="adjustProperty(event, this.name, this.options[this.selectedIndex].value)">
+                  <option value="click">Click</option>
+                  <option value="hover">Hover</option>
                 </select>
               </li>
-            </ul>
-            <li>on...
-              <select id="transition" onchange="adjustProperty(event, this.name, this.options[this.selectedIndex].value)">
-                <option value="click">Click</option>
-                <option value="hover">Hover</option>
-              </select>
-            </li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </section>
+        <!-- STYLE SELECTION END -->
+
+        <!-- STYLE OUTPUT -->
+        <section class="styleoutput">
+          <p>Style Output:</p>
+          <hr/>
+          <p id="output"></p>
+        </section>
       </aside>
       <footer class="footer">Footer</footer>
     </div>

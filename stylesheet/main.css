@@ -1,7 +1,7 @@
 html {
   margin: 0;
   padding: 0;
-  font-family: 'Oswald', sans-serif; }
+  font-family: 'Montserrat', sans-serif; }
 
 body {
   margin: 0;
@@ -30,9 +30,8 @@ li {
 .header {
   background: #333;
   color: ghostwhite;
-  font-size: 4em;
-  line-height: 2em;
-  font-family: 'Architects Daughter', cursive; }
+  font-size: 6vh;
+  line-height: 12vh; }
 
 .footer {
   background: #333;
@@ -48,7 +47,35 @@ li {
   color: ghostwhite;
   border: 5px solid #555;
   border-top-right-radius: 2px;
-  border-bottom-right-radius: 2px; }
+  border-bottom-right-radius: 2px;
+  padding: 5px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  justify-content: space-around; }
+
+.styleselection {
+  flex: 1;
+  order: 1;
+  height: 80vh;
+  border: 5px solid #333;
+  overflow-y: scroll;
+  -webkit-scrollbar-track-piece: blue; }
+
+.styleoutput {
+  flex: 1;
+  order: 2;
+  height: 80vh;
+  border: 5px solid #333; }
+
+.output {
+  background: grey;
+  border-radius: 5px;
+  padding: 5px; }
 
 #hook {
   height: 100%;
@@ -57,6 +84,9 @@ li {
   top: 0;
   left: 0;
   overflow: hidden; }
+
+#hook > *:hover {
+  cursor: pointer; }
 
 @media all and (min-width: 600px) {
   .options {
@@ -70,7 +100,8 @@ li {
 
   .options {
     order: 1;
-    height: 80vh; }
+    height: 80vh;
+    max-width: 40%; }
 
   .playground {
     order: 2;

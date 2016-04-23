@@ -7,49 +7,67 @@ PROPERTY_SUFFIX = {
   "right": "px",
 }
 ELEMENTS = {
-  "elementIndex": 1,
+  "elementIndex": 0,
 }
+//Generate Initial Element
+var selectedElementId = "hook";
 
-var selectedElementId = "element1";
-
+// Adjust Properties
 function adjustProperty(event, property, value) {
+  if (selectedElementId == 'hook'){return}
+  ELEMENTS[selectedElementId].style[property] = value;
   var div = document.getElementById(selectedElementId);
   value = PROPERTY_SUFFIX[property] ? value+PROPERTY_SUFFIX[property] : value
   div.style[property] = value;
 }
 
+// Special Case
 function adjustRGBA(){
+  if (selectedElementId == 'hook'){return}
   var div = document.getElementById(selectedElementId);
   var red = document.getElementById('red').value;
   var green = document.getElementById('green').value;
   var blue = document.getElementById('blue').value;
   var opacity = document.getElementById('opacity').value / 100;
-  var rgba = "rgba("+red+","+blue+","+green+","+opacity+")";
-  div.style['background'] = rgba;
+  var rgba = "rgba("+red+","+green+","+blue+","+opacity+")";
+  ELEMENTS[selectedElementId].style['background-color'] = rgba;
+  div.style['background-color'] = rgba;
+  ELEMENTS[selectedElementId].generateStyleString();
 }
 
+//Handle adding an element, be it child or sibling
 function addElement(type){
+  //Find the current element to base relationship off of
+  var currentElement = document.getElementById(selectedElementId)
+  //Increment the elementIndex
   ELEMENTS['elementIndex']++;
+  //Create a new instance of Element
   var elementName = "element" + ELEMENTS['elementIndex'];
-  var div = document.createElement("div");
-  div.id = elementName;
-  var hook = document.getElementById("hook");
-  ELEMENTS[elementName] = new Element();
-  div = generateStyle(elementName, div);
-  div.addEventListener("click", function(event){
-    selectedElementId = event.target.id;
-  });
-  hook.appendChild(div);
-}
+  ELEMENTS[elementName] = new Element(elementName);
+  element = ELEMENTS[elementName];
+  //Add default styling to element, assign an id, and add the selected element event listener
+  var newEl = element.generateStyle();
+  newEl.id = elementName;
+  newEl.addEventListener("click", selectElement);
 
-function selectElement(event) {
+  //If the element is a sibling, append parent, else append self
+  if(type == 'sibling' && selectedElementId != 'hook'){
+    currentElement.parentElement.appendChild(newEl);
+  } else {
+    currentElement.appendChild(newEl);
+  }
+}
+selectElement = function selectElement(event) {
   selectedElementId = event.target.id;
+  element = ELEMENTS[selectedElementId];
+  styleString = element.generateStyleString();
+
 }
 
-generateStyle = function (elementName, div){
-  var styleList = ELEMENTS[elementName].style;
+Element.prototype.generateStyle = function(){
+  var styleList = this.style;
+  var div = document.getElementById(this.name) ? document.getElementById(this.name) : document.createElement("div");
   styles = Object.keys(styleList);
-  styleString = "";
   for (var i = 0; i < styles.length; i++) {
     if (styleList[styles[i]]){
       var value = styleList[styles[i]];
@@ -60,8 +78,25 @@ generateStyle = function (elementName, div){
   }
   return div;
 }
-
-function Element(){
+Element.prototype.generateStyleString = function(){
+  var styleList = this.style;
+  var string = selectedElementId+" {";
+  styles = Object.keys(styleList);
+  for (var i = 0; i < styles.length; i++) {
+    if (styleList[styles[i]]){
+      var value = styleList[styles[i]];
+      var property = styles[i];
+      value = PROPERTY_SUFFIX[property] ? value+PROPERTY_SUFFIX[property] : value
+      string += property+": "+value+";";
+      string += "\r\n";
+    }
+  }
+  string += "}";
+  output = document.getElementById('output');
+  output.innerHTML = string;
+}
+function Element(elementName){
+  this.name = elementName,
   this.style = {
     "accelerator": false,
     "azimuth": false,
