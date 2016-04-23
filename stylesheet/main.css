@@ -11,7 +11,13 @@ ul {
   list-style: none; }
 
 li {
-  list-style: none; }
+  list-style: none;
+  margin: 5px; }
+
+select {
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px; }
 
 input[type=range] {
   -webkit-appearance: none; }

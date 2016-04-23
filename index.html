@@ -33,7 +33,6 @@
             <br/>
             <!-- COLORS -->
             <li>Background Color</li>
-              <br/>
               <ul>
                 <li>Red</li>
                 <input id="red" type="range" name="r" min="0" max="255" value="50" step="1" oninput="adjustRGBA()">
@@ -44,10 +43,9 @@
                 <li>Opacity</li>
                 <input id="opacity" type="range" name="opacity" min="0" max="100" value="50" step="1" oninput="adjustRGBA()">
               </ul>
-              </br>
             <!-- SIZES -->
-            <li>Sizes</li>
             <br/>
+            <li>Sizes</li>
             <ul>
               <li>Width</li>
               <input type="range" name="width" min="0" max="700" value="50" step="1" oninput="adjustProperty(event, this.name, this.value)">
@@ -57,7 +55,6 @@
             <br/>
             <!-- POSITIONING -->
             <li>Positioning</li>
-            <br/>
             <ul>
               <li>Position</li>
               <select name="position" onchange="adjustProperty(event, this.name, this.options[this.selectedIndex].value)">
@@ -86,20 +83,19 @@
             <br/>
             <!-- TRANSITIONS -->
             <li>Transitions</li>
-            <br/>
               <ul>
                 <li>Property
                   <select name="background" onchange="adjustProperty(event, this.name, this.options[this.selectedIndex].value)">
                     <option value="color">Color</option>
                   </select>
                 </li>
-              </ul>
               <li>on...
                 <select id="transition" onchange="adjustProperty(event, this.name, this.options[this.selectedIndex].value)">
                   <option value="click">Click</option>
                   <option value="hover">Hover</option>
                 </select>
               </li>
+            </ul>
             <li></li>
             <li></li>
             <li></li>
