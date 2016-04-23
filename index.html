@@ -10,7 +10,7 @@
   <body>
     <!-- WRAPPER -->
     <div class="wrapper">
-      <header class="header">CSS Sandbox (Under Construction &#9786;)</header>
+      <header class="header">CSS Sandbox - 🚧 Under Construction 🚧</header>
       <!-- PLAYGROUND -->
       <article class="playground">
         <p>Playground</p>
@@ -25,12 +25,15 @@
           <ul class="styles">
             <!-- ADD ELEMENTS -->
             <li>Add Elements</li>
+            <br/>
             <ul>
-              <li><input type="button" name="child" value="Add Child" onclick="addElement('child')"/></li>
-              <li><input type="button" name="sibling" value="Add Sibling" onclick="addElement('sibling')"/></li>
+              <li><input class="button" type="button" name="child" value="Add Child" onclick="addElement('child')"/></li>
+              <li><input class="button" type="button" name="sibling" value="Add Sibling" onclick="addElement('sibling')"/></li>
             </ul>
+            <br/>
             <!-- COLORS -->
             <li>Background Color</li>
+              <br/>
               <ul>
                 <li>Red</li>
                 <input id="red" type="range" name="r" min="0" max="255" value="50" step="1" oninput="adjustRGBA()">
@@ -41,16 +44,20 @@
                 <li>Opacity</li>
                 <input id="opacity" type="range" name="opacity" min="0" max="100" value="50" step="1" oninput="adjustRGBA()">
               </ul>
+              </br>
             <!-- SIZES -->
             <li>Sizes</li>
+            <br/>
             <ul>
               <li>Width</li>
               <input type="range" name="width" min="0" max="700" value="50" step="1" oninput="adjustProperty(event, this.name, this.value)">
               <li>Height</li>
               <input type="range" name="height" min="0" max="700" value="50" step="1" oninput="adjustProperty(event, this.name, this.value)">
             </ul>
+            <br/>
             <!-- POSITIONING -->
             <li>Positioning</li>
+            <br/>
             <ul>
               <li>Position</li>
               <select name="position" onchange="adjustProperty(event, this.name, this.options[this.selectedIndex].value)">
@@ -76,8 +83,10 @@
                 <option value="visible">Visible</option>
               </select>
             </ul>
+            <br/>
             <!-- TRANSITIONS -->
             <li>Transitions</li>
+            <br/>
               <ul>
                 <li>Property
                   <select name="background" onchange="adjustProperty(event, this.name, this.options[this.selectedIndex].value)">
@@ -106,7 +115,7 @@
           <p id="output"></p>
         </section>
       </aside>
-      <footer class="footer">Footer</footer>
+      <footer class="footer">Made by Sean Connor</footer>
     </div>
     <script type="text/javascript" src="js/main.js"></script>
   </body>
