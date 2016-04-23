@@ -45,10 +45,6 @@ li {
 .options {
   background: #222;
   color: ghostwhite;
-  border: 5px solid #555;
-  border-top-right-radius: 2px;
-  border-bottom-right-radius: 2px;
-  padding: 5px;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -62,7 +58,6 @@ li {
   flex: 1;
   order: 1;
   height: 80vh;
-  border: 5px solid #333;
   overflow-y: scroll;
   -webkit-scrollbar-track-piece: blue; }
 
@@ -70,7 +65,8 @@ li {
   flex: 1;
   order: 2;
   height: 80vh;
-  border: 5px solid #333; }
+  margin-left: 20px;
+  margin-right: 20px; }
 
 .output {
   background: grey;
